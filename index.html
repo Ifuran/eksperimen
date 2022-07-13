@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS Tips and Trik</title>
+	<meta content="Tips dan Trik CSS" name="Description">
+	<meta content="tipscss" name="Keyword">
+
+	<style type="text/css">
+
+	* {
+		font-family: arial;			
+	}	
+
+	h1 {
+		padding: 5px;
+	}
+
+	.wrapper {
+		width: 200px;	
+		padding: 5px;		
+	}
+
+	.wrapper a {
+		display: block;
+		background-color: #000;
+		color: #fff;
+		padding: 5px;
+		text-decoration: none;
+	}
+
+	.isi a {
+		background-color: #fff;
+		color: #000;
+		font-weight: bold;
+		text-decoration: underline;
+		padding: 0;
+		margin: 0;
+	}
+
+	.isi,
+	.inf {
+		height: 0;
+		padding: 0;
+		overflow: hidden;	
+	}
+
+	.isi:target {
+		height: auto;
+		padding: 5px;
+		margin-top: 15px;
+		border: 1px solid #000;	
+		transition-duration: 0.2s;
+	}	
+
+	.inf:target {
+		width: 410px;
+		border-radius: 0 20px 25px 25px;
+		background-color: #000;
+		color: #fff;
+		padding: 15px;
+		margin: 5px;
+		left: 35%;
+		top: 25%;
+		position: fixed;
+		height: auto;			
+		transition-duration: 0.2s;
+	}	
+
+</style>
+</head>
+<body>
+	<h1>Belajar Accordion dan ModalBox</h1>
+	<div class="wrapper">
+		<a href="#menu">Meta Tag</a>
+		<div id="menu" class="isi">Meta Tag adalah tag html untuk mendeskripsikan halaman web kita pada mesin pencari. Tag ini tidak akan mempengaruhi isi dari halaman kita.
+		<a href="#info">Detail.</a>
+		</div>	
+		<div id="info" class="inf">
+			Meta Tag digunakan agar mesin pencari menampilkan halaman web yang sesuai dengan pencarian pengguna. Umumnya Meta Tag diletakkan di bagian header HTML.
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<a href="#menu1">Meta Tag Title</a>
+		<div id="menu1" class="isi">Meta Tag ini menjelaskan judul halaman kita ke mesin pencari.
+		<a href="#info1">Detail.</a>	
+		</div>	
+		<div id="info1" class="inf" >
+			Penulisannya:
+			<xmp><title>judulhalaman</title></xmp>
+		</div>	
+	</div>
+	
+	<div class="wrapper">
+		<a href="#menu2">Meta Tag Description</a>
+		<div id="menu2" class="isi">Meta Tag ini menjelaskan deskripsi halaman web kita ke mesin pencari.
+		<a href="#info2">Detail.</a>		
+		</div>		
+		<div id="info2" class="inf">
+			Penulisannya:
+			<xmp><meta content="deskripsihalaman" name="Description"></xmp>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<a href="#menu3">Meta Tag Keyword</a>
+		<div id="menu3" class="isi">Meta Tag ini menjelaskan keyword halaman kita ke mesin pencari.	
+		<a href="#info3">Detail.</a>	
+		</div>
+		<div id="info3" class="inf">
+			Penulisannya:
+			<xmp><meta content="keywordhalaman" name="Keyword"></xmp>
+		</div>		
+	</div>
+
+	<div class="wrapper">
+		<a href="#menu4">Meta Tag Charset</a>
+		<div id="menu4" class="isi">Meta Tag ini menjelaskan karakter atau penulisan huruf yang kita gunakan di halaman ini pada mesin pencari.
+		<a href="#info4">Detail.</a>	
+		</div>	
+		<div id="info4" class="inf">
+			Penulisannya:
+			<xmp><meta charset="utf-8"></xmp>
+		</div>	
+	</div>	
+
+	
+</body>
+</html>

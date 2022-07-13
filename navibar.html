@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<title>NavigationBar</title>
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: arial;
+	}
+	nav {
+		display: flex;
+		background-color: #000;
+		color: #fff;			
+		align-items: center;
+		justify-content: space-between;			
+	}
+	nav .logo {					
+		margin-left: 50px;
+		font-size: 24px;
+	}
+	nav ul {
+		display: flex;
+		margin-right: 50px;
+	}
+	nav ul li {
+		list-style-type: none;
+		padding: 15px;
+	}
+	nav a {
+		text-decoration: none;
+		color: #fff;
+	}
+	nav li:hover {
+		background-color: #fff;
+	}
+	nav li:hover a {
+		color: #000;
+	}
+	#check, .toggle {
+		display: none;
+		font-size: 30px;
+	}	
+	@media (max-width: 768px) {
+		.toggle {
+			display: block;
+			margin: 15px;
+		}
+		nav {
+			flex-wrap: wrap;
+		}		
+		nav ul {
+			display: none;			
+			width: 100%;
+			text-align: right;			
+		}
+		#check:checked ~ .link {
+			display: block;
+		}
+	}
+</style>
+</head>
+<body>
+	<nav>
+		<div class="logo">NavigationBar</div>
+		<input type="checkbox" id="check">
+		<label for="check">
+			<i class="bi bi-list toggle"></i>
+		</label>
+		<ul class="link">			
+			<li><a href="#">Beranda</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Projek</a></li>
+			<li><a href="#">Kontak</a></li>
+		</ul>
+	</nav>
+</body>
+</html>
