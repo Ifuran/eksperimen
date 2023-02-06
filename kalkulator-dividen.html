@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Kalkulator Dividen</title>
+</head>
+<body>
+	<style type="text/css">
+	* {
+		font-family: times new roman;
+		font-size: 1.1rem;
+	}
+</style>
+<div class="container col-md-6">
+	<div class="py-2 bg-dark text-white">
+		<h1 class="fw-bold ms-2">Kalkulator Dividen</h1>	
+		<p class="ms-2">Menghitung perkiraan dividen yang didapatkan.</p>
+	</div>
+	<div class="bg-light">
+		<form class="mx-2 fw-bold">
+			<div class="">
+				<label for="hrg_saham" class="form-label">Harga Saham (lot)</label>
+				<input type="text" class="form-control" id="hrg_saham" placeholder="Harga Saham" onkeyup="penjumlahan()">
+			</div>
+			<div class="">
+				<label for="jlh_lot" class="form-label">Jumlah Lot</label>
+				<input type="text" class="form-control" id="jlh_lot" placeholder="Jumlah Lot" onkeyup="penjumlahan()">
+			</div>
+			<div class="mb-4">
+				<label for="divi" class="form-label">Dividen</label>
+				<input type="text" class="form-control" id="divi" placeholder="Dividen" onkeyup="penjumlahan()">
+			</div>					
+		</form>
+		<div class="bg-dark text-white">
+			<h1 class="fw-bold ms-2">Hasil</h1>	
+			<div class="mx-2">
+				<label for="jlh_divi" class="form-label">Dividen yang akan diterima</label>	
+				<input type="text" class="form-control" id="jlh_divi" placeholder="Jumlah Dividen" readonly>
+			</div>
+			<div class="mx-2">
+				<label for="jlh_inves" class="form-label">Dana yang perlu diinvestasikan</label>		
+				<input type="text" class="form-control" id="jlh_inves" placeholder="Jumlah Investasi" readonly>
+			</div>				
+			<div class="text-center py-3">
+				<a href="" class="text-white" data-toggle="modal" data-target="#myModal">About</a>	
+			</div>							
+		</div>		
+	</div>
+	<!-- Modal -->
+	<div class="modal" id="myModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-light">
+					<h3 class="modal-title fw-bold">Kalkulator Dividen</h3>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Berawal dari video Youtube tentang cara mendapatkan dividen dari saham dan hidup dari dividen saham, Aku akhirnya membangun aplikasi kalkulator sederhana ini untuk <strong>memperkirakan uang yang akan diterima dari dividen saham perusahaan</strong>.</p>
+					<p>Cara pemakaian :</p>
+					<p>
+					1. Tentukan saham perusahaan yang akan kamu beli (<strong>pastikan saham yang rutin memberikan dividen</strong>)</br>
+				2. Masukan harga saham perusahaan</br>
+			3. Masukan jumlah lot saham yang dibeli</br>
+			4. Masukan dividen yang dibagikan (<strong>perkiraan berdasarkan <i>history</i></strong>)
+		</p>    				    				    		
+	</div>
+	<div class="modal-footer bg-dark">
+		<a href="https://www.jarikeyboards.my.id" class="text-white">Jari Keyboard</a>		
+	</div>    			
+</div>
+</div>
+</div>
+</div> 
+</div>
+<script type="text/javascript">		
+	var format1 = document.getElementById("hrg_saham");
+	format1.addEventListener("keyup", function(e) {
+	  // tambahkan 'Rp.' pada saat form di ketik
+	  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+	  format1.value = formatRupiah(this.value, "Rp. ");
+	});
+	var format2 = document.getElementById("jlh_lot");
+	format2.addEventListener("keyup", function(e) {	  
+	  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+	  format2.value = formatRupiah(this.value);
+	});
+	var format3 = document.getElementById("divi");
+	format3.addEventListener("keyup", function(e) {
+	  // tambahkan 'Rp.' pada saat form di ketik
+	  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+	  format3.value = formatRupiah(this.value, "Rp. ");
+	});	
+	var format4 = document.getElementById("jlh_divi");
+	format4.addEventListener("keyup", function(e) {
+	  // tambahkan 'Rp.' pada saat form di ketik
+	  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+	  format4.value = formatRupiah(this.value, "Rp. ");
+	});
+	var format5 = document.getElementById("jlh_inves");
+	format5.addEventListener("keyup", function(e) {
+	  // tambahkan 'Rp.' pada saat form di ketik
+	  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+	  format5.value = formatRupiah(this.value, "Rp. ");
+	});	
+
+	/* Fungsi formatRupiah */
+	function formatRupiah(angka, prefix) {
+		if (prefix != "") {
+			var number_string = angka.replace(/[^,\d]/g, "").toString(),
+			split = number_string.split(","),
+			sisa = split[0].length % 3,
+			rupiah = split[0].substr(0, sisa),
+			ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if (ribuan) {
+				separator = sisa ? "." : "";
+				rupiah += separator + ribuan.join(".");
+			}
+
+			rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+			return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+		} else {
+			var number_string = angka.toString(),
+			sisa = number_string.length % 3,
+			rupiah = number_string.substr(0, sisa),
+			ribuan = number_string.substr(sisa).match(/\d{3}/gi);
+
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if (ribuan) {
+				separator = sisa ? "." : "";
+				rupiah += separator + ribuan.join(".");
+			}		
+			return rupiah == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+		}
+	}
+
+	// Fungsi penjumlahan
+	function penjumlahan() {
+		var getharga = document.getElementById('hrg_saham').value;
+		var getlot = document.getElementById('jlh_lot').value;
+		var getdivi = document.getElementById('divi').value;
+
+		var hrg_saham = getharga.split("Rp.").join("").split(".").join("");	
+		var jlh_lot = getlot.split(".").join("");		
+		var divi = getdivi.split("Rp.").join("").split(".").join("");		
+
+		var jlh_divi = jlh_lot * divi;
+		var rupiah_divi = formatRupiah(jlh_divi, '');
+		document.getElementById('jlh_divi').value = rupiah_divi;
+		
+		var jlh_inves = hrg_saham * jlh_lot;
+		var rupiah_inves = formatRupiah(jlh_inves, '');	
+		document.getElementById('jlh_inves').value = rupiah_inves;			
+	}
+</script>
+</body>
+</html>
