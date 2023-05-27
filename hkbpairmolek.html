@@ -1,378 +1,215 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta content="HKBP Air Molek" name="Description">
-	<meta content="gereja hkbp air molek" name="Keyword">
-	<link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1">
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-	<title>HKBP Air Molek</title>
-	<style type="text/css">
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		font-family: arial;
-	}
-	body {		
-		background: linear-gradient(90deg, rgba(0,5,51,1) 45%, rgba(34,41,99,1) 95%);
-	}
-	nav {
-		background-color: #d5d5d5;			
-		color: #252e80;
-		display: flex;
-		width: 100%;
-		height: 80px;
-		align-items: center;
-		position: fixed;
-		z-index: 10;
-		top: 0;					
-	}
-	nav .logo {
-		display: flex;
-		align-items: center;
-		flex: 1;
-		margin-left: 150px;
-	}
-	nav h1 {
-		font-size: 20px;
-		font-weight: 700;			
-	}
-	nav p {
-		font-size: 11px;
-		width: 200px;
-	}
-	nav img {
-		width: 85px;
-	}
-	nav ul {
-		display: flex;
-		font-weight: 700;
-		margin-right: 150px;
-	}
-	nav li {
-		list-style-type: none;
-		padding: 15px;
-	}
-	nav li a {
-		text-decoration: none;
-		color: #252e80;
-	}
-	nav li a:hover {
-		color: #3240bd;
-		text-decoration: underline;
-	}	
-	#check, .toggle {
-		display: none;
-		font-size: 28px;
-	}	
-	.container {
-		margin-top: 100px;
-	}	
-	.container img {
-		display: block;
-		margin: auto;
-		width: 1025px;
-		height: 450px;
-		object-fit: cover;
-		object-position: 0 20%;		
-		filter: brightness(125%);
-	}
-	.info {		
-		background: linear-gradient(90deg, rgba(0,0,0,0.75) 100%, rgba(0,5,51,0.65) 100%), url("https://imgsrv2.voi.id/96YRtY-xSvEcCxvySSFJOKGKwdUvHSWnkP8WGqn5Eas/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy82NTA0LzIwMjAwNTI4MTgxNy1tYWluLmNyb3BwZWRfMTU5MDY2NDY4My5qcGc.jpg");		
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 0 30%;
-		background-color: #d5d5d5;
-		margin: 0 auto;
-		width: 1025px;
-		border-radius: 10px;
-		border: 1px solid #a1a1a1;
-		margin-top: 50px;		
-		text-align: center;
-		color: #fff;
-	}
-	.info h1 {
-		margin-top: 50px;
-		letter-spacing: 2px;
-		font-weight: 100;	
-	}
-	.info h2 {
-		font-size: 30px;
-		font-weight: 700;
-	}
-	.info h3 {
-		font-weight: 100;
-		margin-top: 10px;
-	}
-	.info p {
-		font-weight: bold;
-	}
-	.jadwal {			
-		display: flex;
-		justify-content: space-evenly;
-		margin: 50px 0;	
-	}
-	.kutipan {		
-		background: linear-gradient(90deg, rgba(0,0,0,0.45) 1%, rgba(0,5,51,0.65) 100%), url("https://3.bp.blogspot.com/-M8R9DIkDoy4/VyDEYEmd0II/AAAAAAAABuw/B-n120Bl1yEvzOEZZ2KXPD0nbR3PFRiGgCLcB/s1600/12414038_744796618998373_1035723534_o.jpg");		
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 0 30%;	
-		margin: 0 auto;
-		width: 1025px;		
-		margin-top: 50px;
-		margin-bottom: 100px;		
-		text-align: center;		
-		color: #fff;
-	}	
-	.ayat {
-		padding: 15px;		
-	}
-	.ayat p {
-		font-size: 20px;
-		letter-spacing: 2px;
-		margin-top: 15px;		
-	}
-	#tentang {
-		background-color: #d5d5d5;			
-		color: #252e80;
-		display: flex;
-		width: 100%;
-		height: 450px;
-		align-items: center;					
-	}
-	.tentang1 ul {	
-		margin-left: 300px;
-		width: 250px;
-		list-style-type: none;
-	}
-	.tentang1 .judul {
-		font-weight: bold;
-		margin: 15px 0 5px 0;
-	}
-	.tentang2 {
-		display: flex;
-		margin-left: 150px;
-		margin-top: -50px;
-		align-items: center;
-	}
-	.tentang2 img {
-		width: 150px;
-	}
-	.tentang2 p {
-		width: 285px;
-	}	
-	.map iframe {
-		width: 450px;				
-		height: 250px;
-		margin-left: 150px;
-		margin-top: -75px;
-	}
-	.sosmed {
-		margin-left: 300px;
-		margin-top: 50px;
-	}	
-	.sosmed a {
-		padding: 10px;
-		text-decoration: none;
-		border: 1px solid #252e80;
-		color: #252e80;
-	}
-	.footer {
-		text-align: center;
-		color: #252e80;
-		background-color: #d5d5d5;
-		padding-bottom: 50px;
-		font-weight: 700;
-	}
-	.inf {
-		height: 0;
-		padding: 0;
-		overflow: hidden;
-	}
-	.inf a {
-		text-decoration: none;
-		color: #fff;		
-		padding: 10px;
-		border-radius: 20px;
-		border: 1px solid #fff;
-	}
-	.inf p {
-		margin: 25px 0;
-	}
-	.inf img {
-		width: 300px;
-		height: 200px;
-		object-fit: cover;
-		object-position: 0 15%;
-		margin-bottom: 20px;
-	}
-	.inf:target {
-		width: 350px;
-		border-radius: 0 20px 25px 25px;
-		background-color: #252e80;
-		color: #fff;
-		padding: 15px;
-		margin: 5px;		
-		left: 40%;
-		top: 25%;
-		position: fixed;
-		height: auto;			
-		transition-duration: 0.2s;
-	}	
-
-
-	@media (max-width: 425px) {	
-		nav .logo {
-			margin-left: 0px;
-		}
-		nav ul {
-			flex-wrap: wrap;			
-			position: fixed;
-			top: 0;
-			margin-top: 80px;
-			width: 100%;
-			background-color: #d5d5d5;	
-			display: none;
-			z-index: 10;
-
-		}
-		nav li {
-			width: 100%;
-			text-align: center;
-			z-index: 10;
-		}
-		.toggle {
-			display: block;		
-			margin-right: 20px;
-		}
-		#check:checked ~ .link {
-			display: block;
-		}
-		.container img {
-			width: 350px;
-			height: 225px;
-		}
-		.info {
-			width: 350px;
-			/*font-size: 0.5em;*/
-		}
-		.kutipan {
-			width: 350px;
-		}
-		.tentang2 {
-			margin-left: -15px;			
-			width: 355px;
-
-		}
-		.tentang2 img {
-			width: 100px;
-		}
-		.tentang1 ul{
-			margin-left: 85px;
-		}
-		.sosmed {
-			margin-left: 85px;
-		}
-		.map iframe {
-		display: none;		
-	}
-		.inf:target {
-			left: 10px;
-		}
-
-
-	}
-	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="HKBP Air Molek" name="Description">
+  <meta content="gereja hkbp air molek" name="Keyword">
+  <title>HKBP Air Molek</title>
+  <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style type="text/css">
+  .carousel-item img {      
+    border-radius: 10px;     
+    height: 450px;
+    object-fit: cover;
+    object-position: 0 20%;   
+    filter: brightness(125%);
+  }
+  .info {   
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 100%, rgba(0,5,51,0.65) 100%), url("https://imgsrv2.voi.id/96YRtY-xSvEcCxvySSFJOKGKwdUvHSWnkP8WGqn5Eas/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy82NTA0LzIwMjAwNTI4MTgxNy1tYWluLmNyb3BwZWRfMTU5MDY2NDY4My5qcGc.jpg");    
+    background-position: 0 30%;                  
+    border-radius: 10px;
+    border: 1px solid #fff;        
+  }
+  .info h2 {      
+    letter-spacing: 2px;
+    font-weight: 100; 
+  }
+  .info h3 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .info h4 {
+    font-weight: 100;      
+  }
+  .info p {
+    font-weight: bold;
+  }
+  .jadwal {     
+    display: flex;
+    justify-content: space-evenly;      
+  }
+  .kutipan {    
+    background: linear-gradient(90deg, rgba(0,0,0,0.45) 1%, rgba(0,5,51,0.65) 100%), url("https://3.bp.blogspot.com/-M8R9DIkDoy4/VyDEYEmd0II/AAAAAAAABuw/B-n120Bl1yEvzOEZZ2KXPD0nbR3PFRiGgCLcB/s1600/12414038_744796618998373_1035723534_o.jpg");   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 30%; 
+    border-radius: 10px;      
+  }
+  #profil ul {
+    list-style-type: none;
+  }
+  #profil ifram {
+    width: 100%;
+  }
+  @media (max-width: 425px) { 
+    .carousel-item img {
+      width: 350px;
+      height: 225px;
+    }
+  }
 </style>
 </head>
 <body>
-	<nav>
-		<div class="logo">
-			<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1"> 
-			<div class="desc">
-				<h1>HKBP Air Molek</h1><hr>
-				<p>Huria Kristen Batak Protestan Air Molek Resort Indragiri</p>
-			</div>
-		</div>
-		<input type="checkbox" id="check">
-		<label for="check"><i class="bi bi-list toggle"></i></label>
-		<ul class="link">						
-			<li><a href="#beranda">Beranda</a></li>
-			<li><a href="#jadwal">Jadwal Ibadah</a></li>
-			<li><a href="#lokasi">Lokasi</a></li>
-			<li><a href="#tentang">Tentang</a></li>
-		</ul>
-	</nav>
-	<div id="beranda">
-		<div class="container">
-			<img src="https://lh3.googleusercontent.com/p/AF1QipNxnkVC1T8Ztne7hAex37Nog-AlEm_npYMEJVJf=s1600-w400">
-			<div  class="info" id="jadwal">
-				<h1>JADWAL IBADAH</h1>
-				<div class="jadwal">
-					<div class="waktu">
-						<h2>09.00 WIB</h2>
-						<h3>Ibadah Pagi</h3>
-						<p>(Bahasa Indonesia)</p>
-					</div>
-					<div class="waktu">
-						<h2>11.00 WIB</h2>
-						<h3>Ibadah Siang</h3>
-						<p>(Bahasa Batak)</p>
-					</div>
-				</div>							
-			</div>
-		</div>
-		<div class="container">
-			<div class="kutipan">				
-				<div class="ayat">
-					<p>" Hendaklah damai sejahtera Kristus  memerintah dalam hatimu, karena untuk itulah kamu telah dipanggil menjadi satu tubuh. Dan bersyukurlah. Biarlah damai sejahtera Kristus mengendalikan hatimu karena memang untuk itulah kamu dipanggil menjadi satu tubuh, dan bersyukurlah"</p>
-					<p>Kolose 3 : 15</p>
-				</div>				
-			</div>
-		</div>
-		<div class="container">
-			
-		</div>
-		<div id="tentang">	
-			<div class="tentang1">
-				<div class="tentang2">
-					<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1"> 
-					<div class="desc">
-						<h1>HKBP Air Molek</h1><hr>
-						<p>Huria Kristen Batak Protestan Air Molek Resort Indragiri</p>	
-					</div>
+  <!-- Navbar -->
 
-				</div>
-				<ul>
-					<li class="judul">Alamat</li>
-					<li>Jalan DI Panjaitan, Airmolek, Riau, Indonesia 29352</li>
-					<li class="judul">Kontak</li>
-					<li>Telp : -</li>
-				</ul>
-				<div class="sosmed">
-					<a href="https://www.facebook.com/340603176501224">Facebook</a>
-					<a href="https://www.youtube.com/channel/UCpIlaoe-kDsJKd-qxyN8Q4g">Youtube</a>	
-				</div>				
-			</div>					
-			<div class="map">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.740197695972!2d102.29437221427062!3d-0.358550435417629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e29922db94a02dd%3A0x876ec6b3a9c27b40!2sHKBP%20Air%20Molek%20-%20Pasir%20Penyu!5e0!3m2!1sid!2sid!4v1657684546536!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
-			<div id="lokasi" class="inf">
-				<h3>Informasi</h3>				
-				<p>Lokasi gereja : Jalan DI Panjaitan, Airmolek, Riau, Indonesia 29352</p>
-				<img src="https://fastly.4sqi.net/img/general/width960/19403722_a0-5iunUbFo76_N5-ikpJ8wMgTi_bUGPhjG8qtKnu-c.jpg">		
-				<a href="https://goo.gl/maps/u1Vkrua9Rt4UeE5W6">Telusuri Lokasi</a>
-				<a href="#">Tutup</a>
-		</div>			
-		</div>
-		<div class="footer">
-			<p>Created by <a href="https://instagram.com/ifransilalahi">Ifran Silalahi</a></p>
-		</div>	
-	</div>
-	
+  <nav class="navbar navbar-expand-lg bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" style="color: #11009E;"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1" width="80" height="64">HKBP Air Molek</a></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">        
+        <ul class="d-flex navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-bold" style="color: #11009E;" href="#jadwalIbadah"><i class="bi bi-calendar"></i> Jadwal & Tata Ibadah</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-bold" style="color: #11009E;" href="https://goo.gl/maps/u1Vkrua9Rt4UeE5W6"><i class="bi bi-geo-alt"></i> Lokasi</a>
+          </li>  
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-bold" style="color: #11009E;" href="#profil"><i class="bi bi-journal"></i> Profil</a>
+          </li>         
+        </ul>        
+      </div>
+    </div>
+  </nav>
 
+  <!-- End Navbar -->
+
+  <div class="container-fluid" style="background-color: #11009E;">        
+    <div class="container pb-5 pt-5 mt-5">
+
+      <!-- Carousel -->
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active mt-5">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNxnkVC1T8Ztne7hAex37Nog-AlEm_npYMEJVJf=s1600-w400" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item mt-5">
+            <img src="https://fastly.4sqi.net/img/general/600x600/19403722_a0-5iunUbFo76_N5-ikpJ8wMgTi_bUGPhjG8qtKnu-c.jpg" class="d-block w-100" alt="...">
+          </div>          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- End of Carousel -->
+
+      <!-- Jadwal Ibadah -->
+
+      <div class="info mt-5 mb-5 text-center text-light" id="jadwalIbadah">
+        <h2 class="mt-5"><i class="bi bi-calendar"></i> JADWAL IBADAH</h2>
+        <div class="jadwal mt-5 mb-5">
+          <div class="waktu">
+            <h3>09.00 WIB</h3>
+            <h4>Ibadah Pagi</h4>
+            <p>(Bahasa Indonesia)</p>
+          </div>
+          <div class="waktu">
+            <h3>11.00 WIB</h3>
+            <h4>Ibadah Siang</h4>
+            <p>(Bahasa Batak)</p>
+          </div>
+        </div>
+        <h2><i class="bi bi-file-earmark"></i> TATA IBADAH</h2>
+        <a href="#" class="btn btn-success mt-4 mb-5 fw-bolder" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-arrow-down-circle"></i> DOWNLOAD</a>
+      </div>
+
+      <!-- ModalBox -->
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Download Tata Ibadah</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Mohon maaf, data tata ibadah perlu kami dapatkan terlebih dahulu untuk dapat dibagikan sehingga Anda dapat mendownloadnya.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oke</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End of ModalBox -->
+
+      <!-- End of Jadwal Ibadah -->
+
+      <!-- Kutipan Ayat Alkitab -->
+
+      <div class="kutipan mb-5">       
+        <div class="ayat text-center text-light p-3 fs-4">
+          <p class="mt-3">" Hendaklah damai sejahtera Kristus  memerintah dalam hatimu, karena untuk itulah kamu telah dipanggil menjadi satu tubuh. Dan bersyukurlah. Biarlah damai sejahtera Kristus mengendalikan hatimu karena memang untuk itulah kamu dipanggil menjadi satu tubuh, dan bersyukurlah"</p>
+          <p>Kolose 3 : 15</p>
+        </div>        
+      </div>
+
+      <!-- End of Kutipan Ayat Alkitab -->      
+
+    </div>                    
+  </div>
+
+  <!-- Profil -->
+
+  <div class="container-fluid" style="background-color: #C4B0FF;">
+    <div class="container">
+      <div class="row py-5" id="profil">        
+        <div class="col-lg-7" style="color: #252e80;">
+          <div class="row">
+            <div class="col-lg-2">
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-FeCcNZaIQJw%2FXCWXe1rhq0I%2FAAAAAAAARMY%2FSkTJfkOlxUEfAFnKl39GSXZ7eHqL4ee_QCLcBGAs%2Fs1600%2FHKBP.png&f=1&nofb=1" width="135" height="100">
+            </div>
+            <div class="col-lg-6 ms-2">
+              <h2 class="fw-bold">HKBP Air Molek</h2><hr class="mt-0 mb-0">
+              <p>Huria Kristen Batak Protestan Air Molek Resort Indragiri</p>
+            </div>
+          </div>
+          <ul>
+            <li class="fw-bold mt-3">Alamat</li>
+            <li class="mt-1"><i class="bi bi-geo-alt-fill"></i> Jalan DI Panjaitan, Airmolek, Riau, Indonesia 29352</li>
+            <li class="fw-bold mt-3">Kontak</li>
+            <li class="mt-1"><i class="bi bi-telephone-fill"></i> Telp : -</li>
+          </ul>
+          <div class="ms-4 mb-3">
+            <a class="btn btn-primary mx-2" href="https://www.facebook.com/340603176501224"><i class="bi bi-facebook"></i> Facebook</a>
+            <a class="btn btn-danger" href="https://www.youtube.com/channel/UCpIlaoe-kDsJKd-qxyN8Q4g"><i class="bi bi-youtube"></i> Youtube</a>  
+          </div>          
+        </div>
+        <div class="col-lg-5">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.740197695972!2d102.29437221427062!3d-0.358550435417629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e29922db94a02dd%3A0x876ec6b3a9c27b40!2sHKBP%20Air%20Molek%20-%20Pasir%20Penyu!5e0!3m2!1sid!2sid!4v1657684546536!5m2!1sid!2sid" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+      </div>
+    </div>        
+  </div>  
+
+  <!-- End of Profil -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
