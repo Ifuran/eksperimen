@@ -28,7 +28,7 @@
 		</div>
 		<div class="bg-light pt-5">
 			<form action="#" class="mx-2 fw-bold text-center">
-				<label for="hrg_saham" class="form-label">Masukan aktivitas Anda 📚</label>
+				<label for="newText" class="form-label">Masukan aktivitas Anda 📚</label>
 				<input type="text" class="form-control text-center" id="newText" placeholder="Aktivitas Anda..">
 				<div class="text-center py-3">
 					<button onclick="add()" class="btn btn-dark center-block">Tambah</button>
@@ -71,7 +71,43 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		const todo = document.getElementById('todo');
+		let todos = {}
+		const STORAGE_TODO = "STORAGE_TODO"
+		const todoBox = document.getElementById("todo")
+		
+		// mengecek broswer compatibel dengan web storage API
+
+		if (typeof(Storage) !== "undefiened")
+			console.log("Local storage tersedia");
+		else
+			console.log("Oops.. data akan hilang setelah halaman di reload");
+
+		//membaca local storage saat halaman di load
+
+		if (todoFromLocal = localStorage.getItem(STORAGE_TODO)) {
+            todos = JSON.parse(todoFromLocal)
+
+			// loop isi objek todos dan buat listnya
+			for (let key in todos)
+                createList(key, todos[key])
+		}
+
+		function syncLocalStorage(activity, item, status = false) {
+            switch(activity) {
+                case 'ADD':
+                case 'UPDATE':
+                    todos[item] = status
+                    break;
+                case 'DELETE':
+                    delete todos[item]
+                    break;
+                default:
+                    break;    
+            }
+
+            localStorage.setItem(STORAGE_TODO, JSON.stringify(todos))
+            return
+        }
 
     	//fitur todo:
     	// 1. menambah 
@@ -79,25 +115,35 @@
     	// 3. mencoret kalau selesai
 
     	function add() {
-    		//1. ambil nilai dari input form
-    		let ambilText = document.getElementById('newText');    		
+            let newText = document.getElementById('newText')
+            createList(newText.value)
+            syncLocalStorage('ADD', newText.value)    
+            newText.value = ''
+        }
 
+        
+        function createList(text, status = false) {
     		//2. tambah list baru ke ul
-    		let newTodo = "<li onclick='toggle(this)' class='fw-bold'><span class='ms-1'> " + newText.value +"</span>"+
-    		"<button onclick='removeItem(this)' class='btn-close float-end' aria-label='Close'></button>"+
-    		"<hr></li>";
-    		todo.insertAdjacentHTML('afterbegin', newTodo);
-    		//3. kosongkan input form
-    		newText.value = "";    		
+
+    		let isDone = (status) ? 'done' : ''
+
+    		let newTodo = `<li class='fw-bold'><span onclick='toggle(this)' class='${isDone} ms-1'>${text}</span>
+    		<span onclick='removeItem(this)'><button class='btn-close float-end' aria-label='Close'></button></span>
+    		<hr></li>`;
+    		todoBox.insertAdjacentHTML('afterbegin', newTodo);
     	}
 
-    	function toggle(el) {
-    		el.classList.toggle("done");    		
-    	}
+        //Toggle
+        function toggle(el) {
+            let status = el.classList.toggle('done')
+            syncLocalStorage('UPDATE', el.innerText, status)    
+        }
 
-    	function removeItem(el) {
-    		el.parentElement.remove();
-    	}
+        //Delete
+        function removeItem(el) {
+            el.parentElement.remove()
+            syncLocalStorage('DELETE', el.previousElementSibling.innerText.trim())    
+        }
     </script>
 </body>
 </html>
