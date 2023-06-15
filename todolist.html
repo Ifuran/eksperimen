@@ -12,21 +12,39 @@
 		* {
 			font-family: times new roman;
 			font-size: 1.1rem;
-		}		
+		}	
+		.form-div {
+			background-color: #f2f2f2;
+		}	
 		.done {
 			text-decoration: line-through;
-			color: green;
+			color: #00f100;
 			font-style: italic;
+		}
+		#darkmode {
+			background-color: #616161;		
+		}
+		#darkmode .form-div {
+			background-color: #303030;	
+			color: #fff;				
+		}
+		#darkmode #todo {
+			color: #fff;
 		}
 	</style>
 </head>
 <body>
 	<div class="container col-md-6">
 		<div class="py-2 bg-dark text-white">
-			<h1 class="fw-bold ms-2">To Do List 📝</h1>	
-			<p class="ms-2">Membantu mencatat perjalanan aktivias Anda.</p>
+			<h1 class="fw-bold ms-2">To Do List 📝</h1>
+			<div class="darkmode ms-2">
+				<span>Mode :</span>	
+				<span class="icon" onclick="setDarkMode(false)">🌕</span>	
+				<span class="icon" onclick="setDarkMode(true)">🌑</span>
+			</div>	
+			<p class="ms-2">Membantu mencatat perjalanan aktivitas Anda.</p>
 		</div>
-		<div class="bg-light pt-5">
+		<div class="form-div pt-5">
 			<form action="#" class="mx-2 fw-bold text-center">
 				<label for="newText" class="form-label">Masukan aktivitas Anda 📚</label>
 				<input type="text" class="form-control text-center" id="newText" placeholder="Aktivitas Anda..">
@@ -92,6 +110,9 @@
                 createList(key, todos[key])
 		}
 
+		if (themFromLocal = localStorage.getItem("theme") == "darkmode") 
+			setDarkMode(true);
+
 		function syncLocalStorage(activity, item, status = false) {
             switch(activity) {
                 case 'ADD':
@@ -143,6 +164,17 @@
         function removeItem(el) {
             el.parentElement.remove()
             syncLocalStorage('DELETE', el.previousElementSibling.innerText.trim())    
+        }
+
+        //Mode Gelap
+        function setDarkMode(isDark) {
+        	if (isDark) {
+        		document.body.setAttribute("id", "darkmode"); 
+        		localStorage.setItem("theme", "darkmode");       		
+        	} else {
+        		document.body.setAttribute("id", "");
+        		localStorage.removeItem("theme")
+        	}
         }
     </script>
 </body>
